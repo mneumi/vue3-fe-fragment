@@ -12,6 +12,6 @@ export interface ICategorys {
 export interface ICategory {
   id: string
   name: string
-  col: number
-  urlname: string
+  col?: number
+  urlname?: string
 }

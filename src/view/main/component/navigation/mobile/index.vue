@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white sticky top-0 left-0 z-10">
     <ul
-      class="relative flex overflow-x-auto p-[10px] text-xs text-zinc-600 overflow-hidden"
+      class="relative flex overflow-x-auto p-[0.25rem] text-xs text-zinc-600 overflow-hidden"
       ref="ulTarget"
     >
       <li
@@ -29,9 +29,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch } from "vue"
+import { ref, watch } from "vue"
 import { useScroll } from "@vueuse/core"
 import type { ICategory } from "@/api/type"
+import { transformRemToPx } from "@/util/flexible"
 
 defineProps<{
   categorys: ICategory[]
@@ -70,7 +71,7 @@ const handleCategoryClick = (index: number) => {
 
   sliderStyle.value.width = `${width}px`
   sliderStyle.value.transform = `translateX(${
-    ulTargetScroll.x.value + left - 10
+    ulTargetScroll.x.value + left - transformRemToPx(0.25)
   }px)`
 }
 </script>

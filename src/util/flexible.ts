@@ -14,13 +14,25 @@ const isMobileTerminalByDevice = deviceReg.test(navigator.userAgent)
 
 const useREM = () => {
   document.addEventListener("DOMContentLoaded", () => {
-    const htmlElement = document.querySelector("html")!
+    const htmlElement = document.documentElement
 
-    let fontSzie = window.innerWidth / 10
-    fontSzie = fontSzie > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSzie
+    let fontSize = window.innerWidth / 10
+    fontSize = fontSize > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSize
 
-    htmlElement.style.fontSize = fontSzie + "px"
+    htmlElement.style.fontSize = fontSize + "px"
   })
 }
 
-export { isMobileTerminalByWidth, isMobileTerminalByDevice, useREM }
+const transformRemToPx = (remValue: number) => {
+  let fontSize = window.innerWidth / 10
+  fontSize = fontSize > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSize
+
+  return fontSize * remValue
+}
+
+export {
+  isMobileTerminalByWidth,
+  isMobileTerminalByDevice,
+  useREM,
+  transformRemToPx
+}
