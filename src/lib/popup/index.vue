@@ -11,7 +11,7 @@
       <div
         v-if="modelValue"
         v-bind="$attrs"
-        class="w-screen bg-white z-50 fixed bottom-0 max-h-[70vh] overflow-scroll"
+        class="w-screen bg-white z-50 fixed bottom-0"
       >
         <slot />
       </div>

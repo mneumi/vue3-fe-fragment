@@ -27,11 +27,11 @@
     </ul>
   </div>
   <m-popup v-model="isVisiable">
-    <ul>
-      <li v-for="item in categorys" :key="item.id" class="text-[20px] p-1.5">
-        {{ item.name }}
-      </li>
-    </ul>
+    <menus
+      :categorys="categorys"
+      @item-click="handleCategoryClick"
+      :highlight-index="currentCategoryIndex"
+    />
   </m-popup>
 </template>
 
@@ -40,6 +40,7 @@ import { ref, watch } from "vue"
 import { useScroll } from "@vueuse/core"
 import type { ICategory } from "@/api/type"
 import { transformRemToPx } from "@/util/flexible"
+import Menus from "../../menu/index.vue"
 
 defineProps<{
   categorys: ICategory[]
@@ -80,6 +81,7 @@ const handleCategoryClick = (index: number) => {
   sliderStyle.value.transform = `translateX(${
     ulTargetScroll.x.value + left - transformRemToPx(0.25)
   }px)`
+  isVisiable.value = false
 }
 
 const isVisiable = ref(false)
