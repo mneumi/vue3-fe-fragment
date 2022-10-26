@@ -12,7 +12,7 @@
       <li
         class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
       >
-        <m-svg-icon name="hamburger" class="w-1.5 h-1.5" />
+        <m-svg-icon name="hamburger" class="w-1.5 h-1.5" @click="onShowPopup" />
       </li>
       <li
         v-for="(item, index) in categorys"
@@ -26,6 +26,13 @@
       </li>
     </ul>
   </div>
+  <m-popup v-model="isVisiable">
+    <ul>
+      <li v-for="item in categorys" :key="item.id" class="text-[20px] p-1.5">
+        {{ item.name }}
+      </li>
+    </ul>
+  </m-popup>
 </template>
 
 <script lang="ts" setup>
@@ -73,6 +80,11 @@ const handleCategoryClick = (index: number) => {
   sliderStyle.value.transform = `translateX(${
     ulTargetScroll.x.value + left - transformRemToPx(0.25)
   }px)`
+}
+
+const isVisiable = ref(false)
+const onShowPopup = () => {
+  isVisiable.value = true
 }
 </script>
 
