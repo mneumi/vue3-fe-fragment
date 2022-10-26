@@ -1,7 +1,9 @@
 <template>
-  <div>移动端首页</div>
+  <navigation />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Navigation from "./component/navigation/index.vue"
+</script>
 
 <style lang="scss" scoped></style>
