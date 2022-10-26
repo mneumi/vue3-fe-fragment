@@ -1,9 +1,9 @@
 <template>
-  <div class="flex justify-center items-center bg-green-300 h-screen w-screen">
-    <div class="text-3xl font-bold underline">Hello world!</div>
-  </div>
+  <router-view />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { isMobileTerminalByWidth } from "@/util/flexible"
+</script>
 
 <style scoped></style>
