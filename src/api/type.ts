@@ -5,11 +5,13 @@ export interface IResponse<T> {
   data: T
 }
 
+export interface ICategorys {
+  categorys: ICategory[]
+}
+
 export interface ICategory {
-  categorys: {
-    id: string
-    name: string
-    col: number
-    urlname: string
-  }[]
+  id: string
+  name: string
+  col: number
+  urlname: string
 }

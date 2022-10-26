@@ -1,8 +1,8 @@
 import { requester } from "@/util/requester"
-import { IResponse, ICategory } from "./type"
+import { ICategorys } from "./type"
 
 const getCategory = () => {
-  return requester.request<IResponse<ICategory>>({
+  return requester.request<any, ICategorys>({
     method: "GET",
     url: "/category"
   })
