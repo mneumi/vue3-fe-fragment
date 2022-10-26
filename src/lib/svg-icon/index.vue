@@ -9,8 +9,8 @@ import { computed } from "vue"
 
 const props = defineProps<{
   name: string
-  color: string
-  fillClass: string
+  color?: string
+  fillClass?: string
 }>()
 
 const symbolID = computed(() => `#icon-${props.name}`)
