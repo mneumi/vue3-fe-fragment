@@ -1,5 +1,5 @@
 {
-  "name": "fe-fragment",
+  "name": "vue3-fe-fragment",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@types/node": "^18.11.5",
-    "vue": "^3.2.37"
+    "pinia": "^2.0.23",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
