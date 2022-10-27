@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full items-center bg-white border-b border-b-zinc-200 px-2 py-1 flex"
+    class="w-full items-center bg-white dark:bg-zinc-800 border-b border-b-zinc-200 px-2 py-1 flex"
   >
     <img
       src="https://cn.vitejs.dev/logo.svg"

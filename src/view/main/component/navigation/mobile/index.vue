@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white sticky top-0 left-0 z-10">
+  <div class="bg-white dark:bg-zinc-900 sticky top-0 left-0 z-10">
     <ul
       class="relative flex overflow-x-auto p-[0.25rem] text-xs text-zinc-600 overflow-hidden scrollbar-hide"
       ref="ulTarget"
@@ -7,10 +7,10 @@
       <li
         ref="sliderTaget"
         :style="sliderStyle"
-        class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200"
+        class="absolute h-[22px] bg-zinc-900 dark:bg-zinc-800 rounded-lg duration-200"
       ></li>
       <li
-        class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
+        class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white dark:bg-zinc-900 dark:shadow-l-zinc"
       >
         <m-svg-icon name="hamburger" class="w-1.5 h-1.5" @click="onShowPopup" />
       </li>
@@ -38,13 +38,10 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue"
 import { useScroll } from "@vueuse/core"
-import type { ICategory } from "@/api/type"
 import { transformRemToPx } from "@/util/flexible"
 import Menus from "../../menu/index.vue"
-
-defineProps<{
-  categorys: ICategory[]
-}>()
+import { useCategoryStore } from "@/store/category"
+import { storeToRefs } from "pinia"
 
 const currentCategoryIndex = ref(0)
 
@@ -83,6 +80,9 @@ const handleCategoryClick = (index: number) => {
   }px)`
   isVisiable.value = false
 }
+
+const categoryStore = useCategoryStore()
+const { categorys } = storeToRefs(categoryStore)
 
 const isVisiable = ref(false)
 const onShowPopup = () => {

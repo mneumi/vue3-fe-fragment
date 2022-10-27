@@ -5,7 +5,13 @@ const desktopRoutes: RouteRecordRaw[] = [
     path: "/",
     name: "main",
     component: () => import("@/view/layout/index.vue"),
-    children: []
+    children: [
+      {
+        path: "",
+        name: "home",
+        component: () => import("@/view/main/index.vue")
+      }
+    ]
   }
 ]
 
